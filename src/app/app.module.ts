@@ -1,23 +1,20 @@
-import 'reflect-metadata';
-import '../polyfills';
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-
-import { AppRoutingModule } from './app-routing.module';
-
+import { BrowserModule } from '@angular/platform-browser';
 // NG Translate
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
-import { ElectronService } from './providers/electron.service';
-
-import { WebviewDirective } from './directives/webview.directive';
-
+import 'reflect-metadata';
+import '../polyfills';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { WebviewDirective } from './directives/webview.directive';
+import { ElectronService } from './providers/electron.service';
+import { SharedModule } from './shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -28,9 +25,11 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     HomeComponent,
-    WebviewDirective
+    WebviewDirective,
+    TasksComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,

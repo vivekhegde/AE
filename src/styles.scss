@@ -1,7 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 
   height: 100%;
+}
+
+body {
+  background-image: url(https://images.unsplash.com/photo-1489846986031-7cea03ab8fd0?ixlib=rb-0.3.5…EyMDd9&s=a6c62b8…&auto=format&fit=crop&w=1600&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
 }
