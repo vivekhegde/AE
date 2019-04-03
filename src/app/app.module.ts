@@ -14,7 +14,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { WebviewDirective } from './directives/webview.directive';
 import { ElectronService } from './providers/electron.service';
 import { SharedModule } from './shared/shared.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -26,7 +26,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     HomeComponent,
     WebviewDirective,
-    TasksComponent
+    TasksComponent,
+    NavigationComponent
   ],
   imports: [
     SharedModule,
