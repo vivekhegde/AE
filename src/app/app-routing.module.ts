@@ -2,6 +2,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TasksComponent } from './components/tasks/tasks.component';
+import { LinkListComponent } from './components/link-list/link-list.component';
+import { TemplateDrivenComponent } from './components/poc/form-validations/template-driven/template-driven.component';
 
 const routes: Routes = [
     {
@@ -11,6 +13,14 @@ const routes: Routes = [
     {
         path: 'tasks',
         component: TasksComponent
+    },
+    {
+        path: 'links',
+        component: LinkListComponent
+    },
+    {
+        path: 'poc/validation',
+        component: TemplateDrivenComponent
     }
 ];
 

@@ -1,0 +1,43 @@
+<form class="container-fluid" [formGroup]="vmLinkForm" (ngSubmit)="addLink()">
+  <div class="form-group">
+    <label for="Title">Title</label>
+    <input type="text" class="form-control" id="Title" placeholder="Enter Title"
+      [formControl]="vmLinkForm.controls['title']">
+  </div>
+  <div class="form-group">
+    <label for="link">link</label>
+    <input type="text" class="form-control" id="link" placeholder="Enter link"
+      [formControl]="vmLinkForm.controls['link']">
+  </div>
+  <div class="alert alert-danger">
+
+    <div *ngIf="vmLinkForm.controls['title'].hasError('required')">
+      title is required.
+    </div>
+    <div *ngIf="vmLinkForm.controls['link'].hasError('required')">
+      link is required.
+    </div>
+    <div *ngIf="vmLinkForm.controls['link'].hasError('invalidCustom')">
+      link invalidCustom required.
+    </div>
+    <!-- <div *ngIf="titleCtrl?.hasError('minlength')">
+      title must be at least 4 characters long.
+    </div>
+    <div *ngIf="linkCtrl?.hasError('required')">
+      link is required.
+    </div> -->
+    <!-- <div *ngIf="title?.errors.forbiddentitle">
+    title cannot be Bob.
+  </div> -->
+  </div>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+<div> -----
+  <pre>{{links | json}}</pre>
+</div>
+<div>
+  <div *ngFor="let link of links" class="p-2">
+    <app-link-list-details [link]="link" (linkSelected)="linkSelected($event)" [class.selected]="isSelected(link)">
+    </app-link-list-details>
+  </div>
+</div>

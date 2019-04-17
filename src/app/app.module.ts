@@ -15,6 +15,9 @@ import { WebviewDirective } from './directives/webview.directive';
 import { ElectronService } from './providers/electron.service';
 import { SharedModule } from './shared/shared.module';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { LinkListComponent } from './components/link-list/link-list.component';
+import { DetailsComponent } from './components/link-list/details/details.component';
+import { TemplateDrivenComponent } from './components/poc/form-validations/template-driven/template-driven.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -27,7 +30,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     WebviewDirective,
     TasksComponent,
-    NavigationComponent
+    NavigationComponent,
+    LinkListComponent,
+    DetailsComponent,
+    TemplateDrivenComponent
   ],
   imports: [
     SharedModule,
