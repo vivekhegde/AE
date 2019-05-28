@@ -1,11 +1,9 @@
 {
-  "name": "angular-electron",
-  "version": "5.1.0",
-  "description": "Angular 7 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "name": "incognito",
+  "version": "0.0.1",
+  "description": "inspired from Angular 7 with Electron (Typescript + SASS + Hot Reload)",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "VH"
   },
   "keywords": [
     "angular",
