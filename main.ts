@@ -1,31 +1,56 @@
-import { app, BrowserWindow, screen } from 'electron';
+import { app, BrowserWindow, screen, Tray, Menu, globalShortcut } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
-let win, serve;
+let win: BrowserWindow;
+let serve: boolean;
+let tray: Tray;
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
 
 function createWindow() {
-
-  const electronScreen = screen;
-  const size = electronScreen.getPrimaryDisplay().workAreaSize;
+  tray = new Tray('./src/tray_icon.ico');
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Open', click: () => {
+        win.show();
+      }
+    },
+    {
+      label: 'close', click: () => {
+        win.close();
+      }
+    }
+  ]);
+  tray.setToolTip('incognito');
+  tray.setContextMenu(contextMenu);
+  // const electronScreen = screen;
+  // const size = electronScreen.getPrimaryDisplay().workAreaSize;
 
   // Create the browser window.
   win = new BrowserWindow({
-    x: 0,
-    y: 0,
-    width: size.width,
-    height: size.height,
     webPreferences: {
       nodeIntegration: true,
     },
+    center: true,
+    useContentSize: true,
+    alwaysOnTop: true,
+    darkTheme: true,
+    titleBarStyle: 'hidden',
+    frame: false,
+    transparent: true
+  });
+
+  win.on('minimize', function (event) {
+    event.preventDefault();
+    win.hide();
   });
 
   if (serve) {
     require('electron-reload')(__dirname, {
       electron: require(`${__dirname}/node_modules/electron`)
     });
+    win.hide();
     win.loadURL('http://localhost:4200');
   } else {
     win.loadURL(url.format({
@@ -35,9 +60,17 @@ function createWindow() {
     }));
   }
 
-  if (serve) {
-    win.webContents.openDevTools();
-  }
+  // if (serve) {
+  //   win.webContents.openDevTools();
+  // }
+
+  globalShortcut.register('Esc', () => {
+    win.hide();
+  });
+  globalShortcut.register('Alt+M', () => {
+    win.focus();
+    win.show();
+  });
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -45,6 +78,9 @@ function createWindow() {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     win = null;
+
+    // Unregister all shortcuts.
+    globalShortcut.unregisterAll();
   });
 
 }
