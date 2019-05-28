@@ -9,7 +9,7 @@ const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
 
 function createWindow() {
-  tray = new Tray('tray_icon.ico');
+  tray = new Tray(path.join(__dirname, 'favicon.ico'));
   const contextMenu = Menu.buildFromTemplate([
     {
       label: 'Open', click: () => {
