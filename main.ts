@@ -35,22 +35,19 @@ function createWindow() {
     center: true,
     useContentSize: true,
     alwaysOnTop: true,
-    darkTheme: true,
-    titleBarStyle: 'hidden',
-    frame: false,
-    transparent: true
+    // frame: false,
+    autoHideMenuBar: true,
   });
 
   win.on('minimize', function (event) {
     event.preventDefault();
     win.hide();
   });
-
+  win.hide();
   if (serve) {
     require('electron-reload')(__dirname, {
       electron: require(`${__dirname}/node_modules/electron`)
     });
-    win.hide();
     win.loadURL('http://localhost:4200');
   } else {
     win.loadURL(url.format({
@@ -60,9 +57,9 @@ function createWindow() {
     }));
   }
 
-  // if (serve) {
-  //   win.webContents.openDevTools();
-  // }
+  if (serve) {
+    win.webContents.openDevTools({ mode: 'undocked' });
+  }
 
   globalShortcut.register('Esc', () => {
     win.hide();
