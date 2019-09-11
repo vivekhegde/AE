@@ -1,5 +1,49 @@
+## 6.1.0 (2019-08-15)
+
+* [DELETE]: vscode settings removed ([becc9b4](https://github.com/maximegris/angular-electron/commit/becc9b4))
+* [UPDATE]: Typescript version fixes ([a284c23](https://github.com/maximegris/angular-electron/commit/a284c23))
+* Angular src restructured as modular as per angular official guidelines, .travis.yml support added fo ([5983703](https://github.com/maximegris/angular-electron/commit/5983703))
+* Corejs path updates ([88056d6](https://github.com/maximegris/angular-electron/commit/88056d6))
+* Electron 6.0.0 ([1aef350](https://github.com/maximegris/angular-electron/commit/1aef350))
+* fix/ Version Electron in README ([acf0d4f](https://github.com/maximegris/angular-electron/commit/acf0d4f))
+* misc/ upgrade Angular 8.2 / Spectron 7 ([6e2211f](https://github.com/maximegris/angular-electron/commit/6e2211f))
+* Update dependencies ([bd51f28](https://github.com/maximegris/angular-electron/commit/bd51f28))
+
+
+
+## <small>6.0.1 (2019-05-31)</small>
+
+* [Bumped Version] 6.0.1 ([4f9cef3](https://github.com/maximegris/angular-electron/commit/4f9cef3))
+* ref/ strict version build-angular & zonejs ([5a24b56](https://github.com/maximegris/angular-electron/commit/5a24b56))
+* ref/ strict version codelyzer ([6ede0c8](https://github.com/maximegris/angular-electron/commit/6ede0c8))
+
+
+
+## 6.0.0 (2019-05-31)
+
+* [Bumped Version] 6.0.0 ([fb719ab](https://github.com/maximegris/angular-electron/commit/fb719ab))
+* Add CI for macOS. ([3ba02e3](https://github.com/maximegris/angular-electron/commit/3ba02e3))
+* bump angular version ([7a564a0](https://github.com/maximegris/angular-electron/commit/7a564a0))
+* bump tslint & codelyzer versions, update tslint rules & alphabetize ([8425cdc](https://github.com/maximegris/angular-electron/commit/8425cdc))
+* Fix Travis CI link ([10aaa4c](https://github.com/maximegris/angular-electron/commit/10aaa4c))
+* Not gitignore src/karma.conf.js ([7599320](https://github.com/maximegris/angular-electron/commit/7599320))
+* ref/ upgrade Angular 8 and Electron 5 ([92334cf](https://github.com/maximegris/angular-electron/commit/92334cf))
+* Remove Node.js v12. ([ccbf6cd](https://github.com/maximegris/angular-electron/commit/ccbf6cd))
+* Run CI for Node.js version 10 ([2538965](https://github.com/maximegris/angular-electron/commit/2538965))
+* update versions and prepare for electron 5 ([07a5786](https://github.com/maximegris/angular-electron/commit/07a5786))
+* Use service xvfb. ([4db31e3](https://github.com/maximegris/angular-electron/commit/4db31e3))
+* version bump ([bb1d6bb](https://github.com/maximegris/angular-electron/commit/bb1d6bb))
+* feat(CI): update Ubuntu and Node versions in Travis ([e0ff557](https://github.com/maximegris/angular-electron/commit/e0ff557))
+* fix: type conflicts ([a2971bf](https://github.com/maximegris/angular-electron/commit/a2971bf))
+* fix(e2e): add mocha types ([20e1e89](https://github.com/maximegris/angular-electron/commit/20e1e89))
+* fix(e2e): without devTools ([2581983](https://github.com/maximegris/angular-electron/commit/2581983)), closes [/github.com/electron/spectron/issues/174#issuecomment-319242097](https://github.com//github.com/electron/spectron/issues/174/issues/issuecomment-319242097)
+* chore: Spectron for e2e tests ([901438a](https://github.com/maximegris/angular-electron/commit/901438a))
+
+
+
 ## 5.1.0 (2018-11-30)
 
+* [Bumped Version] 5.1.0 ([b790e12](https://github.com/maximegris/angular-electron/commit/b790e12))
 * fix/ typo Angular 7 ([fde371f](https://github.com/maximegris/angular-electron/commit/fde371f))
 * fix/ typo README ([723233c](https://github.com/maximegris/angular-electron/commit/723233c))
 * fix/ typo script npm electron:windows ([45bab44](https://github.com/maximegris/angular-electron/commit/45bab44))

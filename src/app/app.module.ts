@@ -1,23 +1,22 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-// NG Translate
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import 'reflect-metadata';
 import '../polyfills';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { TasksComponent } from './components/tasks/tasks.component';
-import { WebviewDirective } from './directives/webview.directive';
-import { ElectronService } from './providers/electron.service';
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { LinkListComponent } from './components/link-list/link-list.component';
-import { DetailsComponent } from './components/link-list/details/details.component';
-import { TemplateDrivenComponent } from './components/poc/form-validations/template-driven/template-driven.component';
+
+import { AppRoutingModule } from './app-routing.module';
+
+// NG Translate
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { HomeModule } from './home/home.module';
+
+import { AppComponent } from './app.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -25,31 +24,24 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    WebviewDirective,
-    TasksComponent,
-    NavigationComponent,
-    LinkListComponent,
-    DetailsComponent,
-    TemplateDrivenComponent
-  ],
+  declarations: [AppComponent],
   imports: [
-    SharedModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    CoreModule,
+    SharedModule,
+    HomeModule,
     AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (HttpLoaderFactory),
+        useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
     })
   ],
-  providers: [ElectronService],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
