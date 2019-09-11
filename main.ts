@@ -17,7 +17,7 @@ function createWindow() {
       }
     },
     {
-      label: 'close', click: () => {
+      label: 'Close', click: () => {
         win.close();
       }
     }
@@ -35,7 +35,7 @@ function createWindow() {
     center: true,
     useContentSize: true,
     alwaysOnTop: true,
-    frame: false,
+    frame: true,
     autoHideMenuBar: true,
     icon: path.join(__dirname, 'favicon.ico')
   });
