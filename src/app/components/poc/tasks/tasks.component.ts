@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { WorkerService } from '../../providers/worker-service.service';
-import { WorkerMessage, WORKER_TOPIC } from '../../../worker/worker-message.model';
 import { Subscription } from 'rxjs';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { WorkerService } from '../../../providers/worker-service.service';
+import { WorkerMessage, WORKER_TOPIC } from '../../../../worker/worker-message.model';
 
 @Component({
   selector: 'app-tasks',
@@ -14,7 +14,7 @@ export class TasksComponent implements OnInit, OnDestroy {
   closeResult: string;
 
   timerInstance = 30;
-  constructor (private workerService: WorkerService, private modalService: NgbModal) {
+  constructor(private workerService: WorkerService, private modalService: NgbModal) {
 
   }
 

@@ -9,7 +9,7 @@ import { LinkList } from '../link-list.model';
 export class DetailsComponent implements OnInit {
   @Input() link: LinkList;
   @Output() linkSelected = new EventEmitter<LinkList>();
-  constructor () { }
+  constructor() { }
 
   ngOnInit() {
 

@@ -35,8 +35,9 @@ function createWindow() {
     center: true,
     useContentSize: true,
     alwaysOnTop: true,
-    // frame: false,
+    frame: false,
     autoHideMenuBar: true,
+    icon: path.join(__dirname, 'favicon.ico')
   });
 
   win.on('minimize', function (event) {

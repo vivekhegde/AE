@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Subject } from 'rxjs';
-import { delay, mergeMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +6,7 @@ import { delay, mergeMap, debounceTime, distinctUntilChanged } from 'rxjs/operat
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  textChange$ = new Subject<string>();
-  constructor (private http: HttpClient) { }
+  constructor() { }
 
   ngOnInit() {
     // const headerDict = {
@@ -43,9 +39,5 @@ export class HomeComponent implements OnInit {
     //   subscribe(value => {
     //     console.log(value)
     //   });
-  }
-
-  searchTextChange(text) {
-    this.textChange$.next(text);
   }
 }
