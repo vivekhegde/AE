@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ElectronService } from '../../../core/services';
+import { LaunchItemModel } from '../launch-items.model';
 
 @Component({
   selector: 'app-launcher-home',
@@ -7,31 +8,57 @@ import { ElectronService } from '../../../core/services';
   styleUrls: ['./launcher-home.component.scss']
 })
 export class LauncherHomeComponent implements OnInit {
-
+  items: LaunchItemModel[] = [];
   constructor(private electronService: ElectronService) { }
 
   ngOnInit() {
-    const path = 'C:/_00/dev/_/';
-    this.electronService.fs.readdir(path, (err, files) => {
-      if (err) {
-        throw err;
-      }
-      files.forEach((file) => {
-        const f = path + '/' + file;
-        this.electronService.fs.stat(f, (errX, statX) => {
-          if (errX) {
-            throw err;
-          }
-          if (statX.isFile) {
-            console.log('[VH]: LauncherHomeComponent -> ngOnInit -> statX', f, statX);
-          }
-        });
-      });
+    this.items.push({
+      id: 1,
+      target: 'C:/Users/viveka.hegade/AppData/Local/Programs/Microsoft VS Code/Code.exe',
+      args: 'C:/_00/Dev/_/workspaces/UI_Kinetic.code-workspace'
     });
+
+    this.items.forEach(i => {
+      this.electronService.app.getFileIcon(i.target, { size: 'normal' }).then(
+        (res) => {
+          if (res) {
+            i.icon = res.toDataURL();
+          }
+        }
+      );
+    });
+
+    // const path = 'C:/_00/dev/_/';
+    // this.electronService.fs.readdir(path, (err, files) => {
+    //   if (err) {
+    //     throw err;
+    //   }
+    //   files.forEach((file) => {
+    //     this.getFileX(path, file, err);
+    //   });
+    // });
+    // this.getFileX(p, 'Ssms.exe');
   }
-  call() {
-    // shell.openItem('C:\\_00\\Dev\\_\\Notepad')
-    this.electronService.shell.openItem('C:\\_00\\Dev\\_\\Drive');
+  // private getFileX(path: string, file: string) {
+  //   const fileName = join(path, file);
+  //   this.electronService.fs.stat(fileName, (errX, statX) => {
+  //     if (errX) {
+  //       throw errX;
+  //     }
+  //     if (statX.isFile) {
+  //       this.electronService.app.getFileIcon(fileName, { size: 'normal' }, (errXX, res) => {
+  //         if (res) {
+  //           document.write('<img src="' + res.toDataURL() + '" />');
+  //         }
+  //       });
+  //       console.log('[VH]: LauncherHomeComponent -> ngOnInit -> statX', fileName, statX);
+  //     }
+  //   });
+  // }
+
+  launch(item: LaunchItemModel): void {
+    this.electronService.shell.openItem(item.args);
+    this.electronService.ipcRenderer.send('hide-window');
   }
 
 }

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { ElectronService } from './core/services';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConfig } from '../environments/environment';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,20 +10,28 @@ import { AppConfig } from '../environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @ViewChild('main', { static: true }) mainContainer: ElementRef<any>;
   constructor(
     public electronService: ElectronService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private router: Router
   ) {
     translate.setDefaultLang('en');
-    console.log('AppConfig', AppConfig);
+    this.router.events.subscribe(ev => {
+      if (ev instanceof NavigationEnd) {
+        this.electronService.ipcRenderer.send('resize-window',
+          { width: this.mainContainer.nativeElement.clientWidth, height: this.mainContainer.nativeElement.clientHeight });
+      }
+    });
+    // console.log('AppConfig', AppConfig);
 
-    if (electronService.isElectron) {
-      console.log(process.env);
-      console.log('Mode electron');
-      console.log('Electron ipcRenderer', electronService.ipcRenderer);
-      console.log('NodeJS childProcess', electronService.childProcess);
-    } else {
-      console.log('Mode web');
-    }
+    // if (electronService.isElectron) {
+    //   console.log(process.env);
+    //   console.log('Mode electron');
+    //   console.log('Electron ipcRenderer', electronService.ipcRenderer);
+    //   console.log('NodeJS childProcess', electronService.childProcess);
+    // } else {
+    //   console.log('Mode web');
+    // }
   }
 }

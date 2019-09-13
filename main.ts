@@ -1,4 +1,4 @@
-import { app, BrowserWindow, screen, Tray, Menu, globalShortcut } from 'electron';
+import { app, BrowserWindow, screen, Tray, Menu, globalShortcut, ipcMain } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
@@ -32,11 +32,10 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
+    alwaysOnTop: true,
+    frame: false,
     center: true,
     useContentSize: true,
-    alwaysOnTop: true,
-    frame: true,
-    autoHideMenuBar: true,
     icon: path.join(__dirname, 'favicon.ico')
   });
 
@@ -105,6 +104,15 @@ try {
     if (win === null) {
       createWindow();
     }
+  });
+
+  ipcMain.on('resize-window', (event, arg) => {
+    if (arg['width'] && arg['height']) {
+      win.setSize(arg['width'], arg['height']);
+    }
+  });
+  ipcMain.on('hide-window', (event, arg) => {
+    win.hide();
   });
 
 } catch (e) {
