@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
   "name": "incognito",
-  "version": "6.1.0",
-=======
-  "name": "angular-electron",
   "version": "6.3.1",
->>>>>>> upstream/master
   "description": "Angular 8 with Electron (Typescript + SASS + Hot Reload)",
   "homepage": "https://github.com/maximegris/angular-electron",
   "author": {
@@ -23,21 +18,12 @@
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "ng": "ng",
-<<<<<<< HEAD
-    "start": "npm run postinstall:electron && npm-run-all -p ng:serve electron:serve && ng run incognito:dev-worker ",
-    "build": "npm run postinstall:electron && ng run incognito:build-worker && npm run electron:serve-tsc && ng build",
-    "build:dev": "npm run build -- -c dev",
-    "build:prod": "npm run build -- -c production",
-    "ng:serve": "ng run incognito:build-worker && ng serve",
-    "ng:serve:web": "npm run postinstall:web && ng serve -o",
-=======
     "start": "npm-run-all -p ng:serve electron:serve",
     "build": "npm run electron:serve-tsc && ng build",
     "build:dev": "npm run build -- -c dev",
     "build:prod": "npm run build -- -c production",
     "ng:serve": "ng serve",
     "ng:serve:web": "ng serve -c dev-web -o",
->>>>>>> upstream/master
     "electron:serve-tsc": "tsc -p tsconfig-serve.json",
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
     "electron:local": "npm run build:prod && electron .",

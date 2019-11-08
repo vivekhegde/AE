@@ -8,14 +8,8 @@ import { WebviewDirective } from './directives/';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-<<<<<<< HEAD
-    declarations: [PageNotFoundComponent, WebviewDirective],
-    imports: [CommonModule, TranslateModule],
-    exports: [TranslateModule, WebviewDirective]
-=======
   declarations: [PageNotFoundComponent, WebviewDirective],
   imports: [CommonModule, TranslateModule, FormsModule],
   exports: [TranslateModule, WebviewDirective, FormsModule]
->>>>>>> upstream/master
 })
 export class SharedModule { }
