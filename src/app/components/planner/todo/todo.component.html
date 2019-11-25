@@ -1,0 +1,15 @@
+<div class="d-flex flex-grow-1">
+    <div class="list">
+        <ul class="d-flex flex-column-reverse todo-list">
+            <li *ngFor="let todo of todoList" class="d-flex">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" (click)="toggleTodoComplete(todo)"
+                            [checked]="todo.complete">{{todo.title}}
+                    </label>
+                </div>
+                <i class="remove mdi mdi-close-box"></i>
+            </li>
+        </ul>
+    </div>
+</div>

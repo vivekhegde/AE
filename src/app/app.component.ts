@@ -3,6 +3,7 @@ import { ElectronService } from './core/services';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConfig } from '../environments/environment';
 import { Router, NavigationEnd } from '@angular/router';
+import { AppStoreService } from './common/app-store.service';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,10 @@ export class AppComponent {
   constructor(
     public electronService: ElectronService,
     private translate: TranslateService,
+    private storeService: AppStoreService,
     private router: Router
   ) {
+    // storeService.set('ABC', 'val' + Date.now());
     translate.setDefaultLang('en');
     this.router.events.subscribe(ev => {
       if (ev instanceof NavigationEnd) {

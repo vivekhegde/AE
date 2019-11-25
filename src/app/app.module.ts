@@ -18,6 +18,7 @@ import { HomeModule } from './home/home.module';
 
 import { AppComponent } from './app.component';
 import { LauncherModule } from './components/launcher/launcher.module';
+import { TodoComponent } from './components/planner/todo/todo.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -25,7 +26,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TodoComponent],
   imports: [
     BrowserModule,
     FormsModule,
