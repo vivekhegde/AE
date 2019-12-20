@@ -1,3 +1,8 @@
+$mdc-theme-primary: #1565c0; // primary color example
+$mdc-theme-secondary: #388e3c; // secondary color example
+
+@import '~@angular-mdc/theme/material';
+
 html,
 body {
 	margin: 0;

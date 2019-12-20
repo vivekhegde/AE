@@ -4,7 +4,16 @@ import { CommonModule } from '@angular/common';
 import { LauncherRoutingModule } from './launcher-routing.module';
 import { LauncherHomeComponent } from './home/launcher-home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule, NgbModalModule, NgbButtonsModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  MdcButtonModule,
+  MdcFabModule,
+  MdcIconModule,
+  MdcTopAppBarModule,
+  MdcMenuModule,
+  MdcListModule,
+  MdcTabBarModule,
+  MdcDrawerModule
+} from '@angular-mdc/web';
 
 
 @NgModule({
@@ -13,9 +22,15 @@ import { NgbModule, NgbModalModule, NgbButtonsModule } from '@ng-bootstrap/ng-bo
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
-    NgbModalModule,
-    NgbButtonsModule,
+    MdcTopAppBarModule,
+    MdcIconModule,
+    MdcMenuModule,
+    MdcButtonModule,
+    MdcFabModule,
+    MdcIconModule,
+    MdcListModule,
+    MdcTabBarModule,
+    MdcDrawerModule,
     LauncherRoutingModule
   ]
 })

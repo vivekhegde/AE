@@ -10,7 +10,19 @@ import { LaunchItemModel } from '../launch-items.model';
 export class LauncherHomeComponent implements OnInit {
   items: LaunchItemModel[] = [];
   constructor(private electronService: ElectronService) { }
+  tabs = [
+    { label: 'Flights', icon: 'airplanemode_active' },
+    { label: 'Hotel', icon: 'hotel' },
+    { label: 'Favorites', icon: 'favorite' }
+  ];
 
+  links = [
+    { label: 'My Day', icon: 'wb_sunny' },
+    { label: 'Todo', icon: 'list' },
+    { label: 'Links', icon: 'link' },
+    { label: 'Notes', icon: 'speaker_notes' },
+    { label: 'Vault', icon: 'vpn_lock' }
+  ];
   ngOnInit() {
     this.items.push({
       id: 1,

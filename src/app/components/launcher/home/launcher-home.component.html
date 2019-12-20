@@ -1,15 +1,44 @@
-<div class="flex w-100 h-100">
-    <!-- <button (click)="call()">Call</button>
-    <button (click)="call()">Call</button>
-    <button (click)="call()">Call</button>
-    <button (click)="call()">Call</button>
-    <button (click)="call()">Call</button>
-    <button (click)="call()">Call</button>
-    <button (click)="call()">Call</button>
-    <button (click)="call()">Call</button>
-    <button (click)="call()">Call</button> -->
+<mdc-top-app-bar class="top-app-bar-with-tabs">
+    <mdc-top-app-bar-row>
+        <mdc-top-app-bar-section align="start" title="App">
+            <button mdcTopAppBarNavIcon (click)="drawer.open = !drawer.open">
+                <mdc-icon>menu</mdc-icon>
+            </button>
+        </mdc-top-app-bar-section>
+        <mdc-top-app-bar-section align="end">
+            <!-- <mdc-icon mdcTopAppBarActionItem>search</mdc-icon> -->
+            <mdc-icon mdcTopAppBarActionItem>notifications_none</mdc-icon>
+            <mdc-icon mdcTopAppBarActionItem (click)="profileMenu.open = !profileMenu.open">more_vert</mdc-icon>
+            <div mdcMenuSurfaceAnchor #menuAnchor>
+                <mdc-menu #profileMenu [anchorElement]="menuAnchor">
+                    <mdc-list>
+                        <mdc-list-item>My Profile</mdc-list-item>
+                        <mdc-list-divider></mdc-list-divider>
+                        <mdc-list-item>Sign out</mdc-list-item>
+                    </mdc-list>
+                </mdc-menu>
+            </div>
+        </mdc-top-app-bar-section>
+    </mdc-top-app-bar-row>
+</mdc-top-app-bar>
 
-    <div *ngFor="let item of items" (click)="launch(item)">
-        <img src="{{item.icon}}" />
-    </div>
+<div class="demo-drawer-app-content">
+    <mdc-drawer drawer="modal" #drawer>
+        <mdc-drawer-header title="Incognito" subtitle="v0.02"></mdc-drawer-header>
+        <hr class="mdc-list-divider">
+        <mdc-drawer-content>
+            <mdc-list>
+                <mdc-list-item *ngFor="let link of links">
+                    <mdc-icon mdcListItemGraphic>{{link.icon}}</mdc-icon>{{link.label}}
+                </mdc-list-item>
+            </mdc-list>
+            <hr class="mdc-list-divider">
+        </mdc-drawer-content>
+    </mdc-drawer>
+
 </div>
+<main class="main-content" id="main-content">
+    <div class="mdc-top-app-bar--fixed-adjust">
+        App Content
+    </div>
+</main>

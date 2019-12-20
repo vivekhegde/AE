@@ -43,7 +43,7 @@ function createWindow() {
     event.preventDefault();
     win.hide();
   });
-  win.hide();
+  // win.hide();
   if (serve) {
     require('electron-reload')(__dirname, {
       electron: require(`${__dirname}/node_modules/electron`)

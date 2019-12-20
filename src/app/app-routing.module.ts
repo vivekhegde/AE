@@ -1,17 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './shared/components';
-import { TodoComponent } from './components/planner/todo/todo.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'todo',
+    redirectTo: 'launcher',
     pathMatch: 'full'
-  },
-  {
-    path: 'todo',
-    component: TodoComponent
   },
   {
     path: '**',
