@@ -1,12 +1,13 @@
-$mdc-theme-primary: #1565c0; // primary color example
-$mdc-theme-secondary: #388e3c; // secondary color example
-
-@import '~@angular-mdc/theme/material';
+$theme-primary: #1565c0; // primary color example
+$theme-secondary: #388e3c; // secondary color example
 
 html,
 body {
 	margin: 0;
 	padding: 0;
+	font-family: Roboto, sans-serif;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
 }
 /*
 body {

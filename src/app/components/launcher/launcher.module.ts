@@ -4,17 +4,6 @@ import { CommonModule } from '@angular/common';
 import { LauncherRoutingModule } from './launcher-routing.module';
 import { LauncherHomeComponent } from './home/launcher-home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-  MdcButtonModule,
-  MdcFabModule,
-  MdcIconModule,
-  MdcTopAppBarModule,
-  MdcMenuModule,
-  MdcListModule,
-  MdcTabBarModule,
-  MdcDrawerModule
-} from '@angular-mdc/web';
-
 
 @NgModule({
   declarations: [LauncherHomeComponent],
@@ -22,16 +11,7 @@ import {
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MdcTopAppBarModule,
-    MdcIconModule,
-    MdcMenuModule,
-    MdcButtonModule,
-    MdcFabModule,
-    MdcIconModule,
-    MdcListModule,
-    MdcTabBarModule,
-    MdcDrawerModule,
-    LauncherRoutingModule
+    LauncherRoutingModule,
   ]
 })
 export class LauncherModule { }

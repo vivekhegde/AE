@@ -1,31 +1,112 @@
-@import '../../../../../node_modules/@angular-mdc/theme/material-components-web.scss';
 :host {
 	display: flex;
 	width: 100%;
 	min-height: 500px;
+	flex-flow: column;
 }
-.top-app-bar-with-tabs {
-	@include mdc-top-app-bar-fill-color(#363640);
+/*
+#911844
+#016677  -- #c9ecf1 - sele - #fff
 
-	// .mdc-tab-bar {
-	// 	margin-top: 1em;
+#F8F8F8 
+*/
 
-	// 	@media (max-width: 599px) {
-	// 		margin-top: 0.5em;
-	// 	}
+.container-border {
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
+}
 
-	// 	.mdc-tab {
-	// 		@include mdc-tab-text-label-color(on-primary);
-	// 		@include mdc-tab-icon-color(on-primary);
-	// 	}
+.fixed-navbar {
+	position: fixed;
+	z-index: 9;
+	width: 200px;
+	left: 0;
+	top: 0;
+	height: 100vh;
+	background-color: #016677;
+	color: #c9ecf1;
+	transform-origin: top left;
+	animation-duration: 0.18s;
+	animation-timing-function: ease;
+	animation-name: slideInFrames;
+	.list-items {
+		margin: 0;
+		padding: 0;
+		.list-item {
+			list-style: none;
+			line-height: 2rem;
+			font-weight: 400;
+			letter-spacing: 0.009375em;
+			&:hover {
+				background-color: #005665;
+			}
+			.nav-link {
+				.mdi {
+					margin-right: 15px;
+				}
 
-	// 	.mdc-tab__ripple {
-	// 		@include mdc-states($material-color-blue-700);
-	// 	}
+				cursor: pointer;
+			}
+		}
+	}
+}
 
-	// 	.mdc-tab-indicator {
-	// 		@include mdc-tab-indicator-underline-color($material-color-blue-700);
-	// 		@include mdc-tab-indicator-underline-height(3px);
-	// 	}
-	// }
+@keyframes slideInFrames {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.top-fixed-header {
+	background-color: #911844;
+	color: #dbffff;
+	padding: 4px;
+	height: 60px;
+	.header-row {
+		display: flex;
+		padding: 8px 12px 8px 0;
+		.nav-icon {
+			z-index: 10;
+			&:hover {
+				background-color: #6e1334;
+			}
+			&.fixed:hover {
+				background-color: #005665 !important;
+			}
+			width: 40px;
+			text-align: center;
+			cursor: pointer;
+			transition: background-color 83ms linear;
+		}
+		.action {
+			flex: 0;
+		}
+		.title {
+			width: 100%;
+			flex: 1;
+			font-size: 1.25rem;
+			line-height: 2rem;
+			font-weight: 500;
+			letter-spacing: 0.0125em;
+			padding-left: 10px;
+			padding-right: 0;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			z-index: 1;
+		}
+	}
+}
+
+.content {
+	display: flex;
+	background-color: #f8f8f8;
+	color: #333;
+	width: 100%;
+	flex: 1;
 }
