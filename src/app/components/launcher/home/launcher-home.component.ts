@@ -12,11 +12,11 @@ export class LauncherHomeComponent implements OnInit {
   constructor(private electronService: ElectronService) { }
 
   links = [
-    { label: 'My Day', icon: 'mdi mdi-white-balance-sunny' },
-    { label: 'Todo', icon: 'mdi mdi-format-list-checks' },
-    { label: 'Links', icon: 'mdi mdi-webhook' },
-    { label: 'Notes', icon: 'mdi mdi-note-outline' },
-    { label: 'Vault', icon: 'mdi mdi-lock' }
+    { label: 'My Day', icon: 'mdi mdi-white-balance-sunny', navLink: ['list'] },
+    { label: 'Focus', icon: 'mdi mdi-format-list-checks', navLink: ['list', { type: 'focus' }] },
+    { label: 'Explore', icon: 'mdi mdi-webhook', navLink: ['list'] },
+    { label: 'Collaboration', icon: 'mdi mdi-note-outline', navLink: ['list'] },
+    { label: 'Vault', icon: 'mdi mdi-lock', navLink: ['list'] }
   ];
   ngOnInit() {
     // this.items.push({

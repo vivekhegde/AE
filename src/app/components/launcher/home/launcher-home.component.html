@@ -4,7 +4,7 @@
             <i class="mdi mdi-24px mdi-menu">
             </i>
         </div>
-        <div class="title">Incognito</div>
+        <div class="title" [routerLink]="['/launcher']">Incognito </div>
         <div class="actions">
             <i class="mdi mdi-24px mdi-dots-vertical">
             </i>
@@ -15,10 +15,16 @@
     <div class="navbar-content mt-5">
         <ul class="list-items">
             <li class="list-item" *ngFor="let link of links">
-                <a class="nav-link">
+                <a class="nav-link" [routerLink]="link.navLink" (click)="showNav = !showNav">
                     <i [class]="link.icon"></i>
                     {{link.label}}</a>
             </li>
         </ul>
     </div>
 </div>
+<div class="content">
+    <!-- #4B5162 -->
+    <router-outlet></router-outlet>
+</div>
+
+<!-- https://codepen.io/aaroniker/pen/aPJbJz -->

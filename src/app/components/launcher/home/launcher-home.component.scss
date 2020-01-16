@@ -1,8 +1,15 @@
+$primary-dark-bg: #323233; //#911844; // #1f1f1f; //#911844; //#2a2a2a;
+$primary-dark-color: #bbbbbb;
+$secondary-dark-bg: #22282a; //#293134; //#4b5162; //#3f3f3f;
+$secondary-dark-color: #b0b0b0;
+$action-dark-bg: #666666;
+// #4B5162
 :host {
 	display: flex;
 	width: 100%;
 	min-height: 500px;
 	flex-flow: column;
+	background-color: $secondary-dark-bg; // #323b44;
 }
 /*
 #911844
@@ -12,7 +19,7 @@
 */
 
 .container-border {
-	background-color: #fff;
+	background-color: $secondary-dark-bg;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
 }
 
@@ -23,11 +30,11 @@
 	left: 0;
 	top: 0;
 	height: 100vh;
-	background-color: #016677;
-	color: #c9ecf1;
+	background-color: $secondary-dark-bg;
+	color: $secondary-dark-color;
 	transform-origin: top left;
 	animation-duration: 0.18s;
-	animation-timing-function: ease;
+	animation-timing-function: ease-in-out;
 	animation-name: slideInFrames;
 	.list-items {
 		margin: 0;
@@ -44,7 +51,7 @@
 				.mdi {
 					margin-right: 15px;
 				}
-
+				color: $primary-dark-color;
 				cursor: pointer;
 			}
 		}
@@ -56,15 +63,15 @@
 		opacity: 0;
 		transform: scale(0);
 	}
-	to {
+	100% {
 		opacity: 1;
 		transform: scale(1);
 	}
 }
 
 .top-fixed-header {
-	background-color: #911844;
-	color: #dbffff;
+	background-color: $primary-dark-bg;
+	color: $primary-dark-color;
 	padding: 4px;
 	height: 60px;
 	.header-row {
@@ -89,6 +96,7 @@
 		.title {
 			width: 100%;
 			flex: 1;
+			cursor: pointer;
 			font-size: 1.25rem;
 			line-height: 2rem;
 			font-weight: 500;
@@ -105,8 +113,8 @@
 
 .content {
 	display: flex;
-	background-color: #f8f8f8;
-	color: #333;
+	background-color: $secondary-dark-bg;
+	color: $secondary-dark-color;
 	width: 100%;
 	flex: 1;
 }
