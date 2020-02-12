@@ -32,7 +32,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
-    alwaysOnTop: true,
+    // alwaysOnTop: true,
     frame: false,
     center: true,
     useContentSize: true,
